@@ -19,6 +19,11 @@ public class ElectronicWatch {
         this.seconds=0;
     }
     public void convertFromSeconds(int inputSeconds){
-
+        this.hours = inputSeconds/3600;
+        this.minutes = (inputSeconds%3600)/60;
+        this.seconds = (inputSeconds%3600)%60;
+    }
+    public String getTime(){
+        return "";
     }
 }
