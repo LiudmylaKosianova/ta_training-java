@@ -24,6 +24,15 @@ public class ElectronicWatch {
         this.seconds = (inputSeconds%3600)%60;
     }
     public String getTime(){
-        return "";
+        String mi = Integer.toString(this.minutes);
+        if(this.minutes<10){
+            mi = String.format("%01d",this.minutes);
+        }
+        String se = Integer.toString(this.seconds);
+        if(this.seconds<10){
+            se = String.format("%01d",this.seconds);
+        }
+        return this.hours+":"+this.minutes+":"+this.seconds;
+        //Output format is h:mm:ss (possible values: [0:00:00; 23:59:59])
     }
 }
