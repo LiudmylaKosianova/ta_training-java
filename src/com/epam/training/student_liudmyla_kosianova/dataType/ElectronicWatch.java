@@ -32,7 +32,7 @@ public class ElectronicWatch {
         if(this.seconds<10){
             se = String.format("%01d",this.seconds);
         }
-        return this.hours+":"+this.minutes+":"+this.seconds;
+        return this.hours+":"+mi+":"+se;
         //Output format is h:mm:ss (possible values: [0:00:00; 23:59:59])
     }
 }
