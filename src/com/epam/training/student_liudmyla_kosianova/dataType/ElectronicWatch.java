@@ -35,11 +35,11 @@ public class ElectronicWatch {
     public String getTime(){
         String mi = Integer.toString(this.minutes);
         if(this.minutes<10){
-            mi = String.format("%01d",this.minutes);
+            mi = String.format("%02d",this.minutes);
         }
         String se = Integer.toString(this.seconds);
         if(this.seconds<10){
-            se = String.format("%01d",this.seconds);
+            se = String.format("%02d",this.seconds);
         }
         return this.hours+":"+mi+":"+se;
         //Output format is h:mm:ss (possible values: [0:00:00; 23:59:59])

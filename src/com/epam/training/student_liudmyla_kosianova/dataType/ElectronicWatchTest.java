@@ -26,5 +26,7 @@ class ElectronicWatchTest {
     void getTime() {
         time1.convertFromSeconds(0);
         assertEquals("0:00:00", time1.getTime());
+        time1.convertFromSeconds(86400);
+
     }
 }
