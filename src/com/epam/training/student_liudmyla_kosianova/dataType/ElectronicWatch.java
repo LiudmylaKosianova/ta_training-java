@@ -48,4 +48,16 @@ public class ElectronicWatch {
         return ho+":"+mi+":"+se;
         //Output format is h:mm:ss (possible values: [0:00:00; 23:59:59])
     }
+    public static void main(String[] args){
+        ElectronicWatch time1 = new ElectronicWatch();
+        int inputSeconds;
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("The number of seconds is: ");
+        inputSeconds = scan.nextInt();
+        time1.convertFromSeconds(inputSeconds);
+        System.out.println("The Electronic watch time is "+ time1.getTime());
+
+
+    }
 }
