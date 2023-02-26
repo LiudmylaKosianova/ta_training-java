@@ -41,7 +41,11 @@ public class ElectronicWatch {
         if(this.seconds<10){
             se = String.format("%02d",this.seconds);
         }
-        return this.hours+":"+mi+":"+se;
+        String ho = Integer.toString(this.hours);
+        if(this.hours == 24){
+            ho = "0";
+        }
+        return ho+":"+mi+":"+se;
         //Output format is h:mm:ss (possible values: [0:00:00; 23:59:59])
     }
 }
