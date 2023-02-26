@@ -1,4 +1,4 @@
-package com.epam.training.student_liudmyla_kosianova.dataType;
+package com.epam.training.student_liudmyla_kosianova.conditionsAndLoops;
 
 import java.util.Scanner;
 
