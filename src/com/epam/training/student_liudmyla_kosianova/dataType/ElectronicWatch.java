@@ -18,6 +18,15 @@ public class ElectronicWatch {
         this.minutes=0;
         this.seconds=0;
     }
+    public int getHours(){
+        return this.hours;
+    }
+    public int getMinutes(){
+        return this.minutes;
+    }
+    public int getSeconds(){
+        return this.seconds;
+    }
     public void convertFromSeconds(int inputSeconds){
         this.hours = inputSeconds/3600;
         this.minutes = (inputSeconds%3600)/60;
