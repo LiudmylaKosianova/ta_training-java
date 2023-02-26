@@ -28,5 +28,11 @@ class ElectronicWatchTest {
         assertEquals("0:00:00", time1.getTime());
         time1.convertFromSeconds(86400);
         assertEquals("0:00:00", time1.getTime());
+        time1.convertFromSeconds(3599);
+        assertEquals("0:59:59", time1.getTime());
+        time1.convertFromSeconds(89999);
+        assertEquals("0:59:59", time1.getTime());
+        time1.convertFromSeconds(86460);
+        assertEquals("0:01:00", time1.getTime());
     }
 }
