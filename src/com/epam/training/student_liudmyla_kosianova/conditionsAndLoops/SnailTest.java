@@ -21,5 +21,13 @@ class SnailTest {
         snail1.setMessage(4,4,10);
         assertNotEquals("1", snail1.getMessage());
         assertEquals("Impossible", snail1.getMessage());
+
+        snail1.setMessage(4,3,10);
+        assertEquals("7", snail1.getMessage());
+
+        snail1.setMessage(4,2,14);
+        assertEquals("6", snail1.getMessage());
+
+
     }
 }
