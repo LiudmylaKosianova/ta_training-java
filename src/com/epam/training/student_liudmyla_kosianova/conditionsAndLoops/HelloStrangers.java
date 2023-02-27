@@ -27,7 +27,7 @@ public class HelloStrangers {
         }else if(inputNumber<0){
             System.out.println("Seriously? Why so negative?");
         }else{
-            String name0 = scan.nextLine();
+            String name0 = scan.nextLine();//without this line, the program works in a strange manner: scan.nextLine() returns just "" empty line, when scanning for the first time.
             for(int i=0; i<inputNumber; i++){
 
                 System.out.println("Hello, " + scan.nextLine());
