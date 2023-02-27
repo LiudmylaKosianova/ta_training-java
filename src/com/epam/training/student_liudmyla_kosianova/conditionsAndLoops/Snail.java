@@ -1,5 +1,7 @@
 package com.epam.training.student_liudmyla_kosianova.conditionsAndLoops;
 
+import java.util.Scanner;
+
 /**
  * Consider a snail travels up a tree a feet each day.
  * Then snail slides down b feet each night. Height of the tree is h feet.
@@ -34,5 +36,19 @@ public class Snail {
     public String getMessage(){
         return this.message;
     }
+    public static void main(String[] args){
+
+        Snail dino = new Snail();
+        Scanner scan = new Scanner(System.in);
+
+        int up = scan.nextInt();
+        int down = scan.nextInt();
+        int height = scan.nextInt();
+
+        dino.setMessage(up, down, height);
+        System.out.println(dino.getMessage());
+
+    }
+
 
 }
