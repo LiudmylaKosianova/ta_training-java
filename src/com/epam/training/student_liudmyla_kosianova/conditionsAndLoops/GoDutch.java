@@ -41,10 +41,11 @@ public class GoDutch {
 
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        System.out.println("How many friends?");
-        int f = scan.nextInt();
         System.out.println("What is the bill total?");
         int b = scan.nextInt();
+        System.out.println("How many friends?");
+        int f = scan.nextInt();
+
 
         GoDutch meal1 = new GoDutch(f,b);
         System.out.println("Each friend should pay: ");
