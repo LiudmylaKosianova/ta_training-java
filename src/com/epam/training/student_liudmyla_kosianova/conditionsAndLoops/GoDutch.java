@@ -20,5 +20,21 @@ package com.epam.training.student_liudmyla_kosianova.conditionsAndLoops;
  * Bill total amount, number of friends and part to pay are integers.
  */
 public class GoDutch {
+    protected int friends;
+    protected int bill;
+
+    public GoDutch(int friends, int bill){
+        this.bill = bill;
+        this.friends = friends;
+    }
+
+    public int getBillWithTips(){
+        return ( (bill*10)/100 ) + bill;
+    }
+
+    public int getEachFriendPay(){
+        return this.getBillWithTips()/friends;
+    }
+
 
 }
