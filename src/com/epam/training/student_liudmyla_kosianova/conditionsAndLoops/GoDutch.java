@@ -26,7 +26,7 @@ public class GoDutch {
     protected int bill;
 
     //constructor
-    public GoDutch(int friends, int bill){
+    public GoDutch(int friends, int bill) {
         this.bill = bill;
         this.friends = friends;
     }
@@ -43,13 +43,23 @@ public class GoDutch {
         Scanner scan = new Scanner(System.in);
         System.out.println("What is the bill total?");
         int b = scan.nextInt();
+        if(b<0){
+            System.out.println("Bill total amount cannot be negative.");
+            return;
+        }
         System.out.println("How many friends?");
         int f = scan.nextInt();
+        if(f<=0){
+            System.out.println("Number of friends cannot be negative or zero.");
+            return;
+        }
 
 
         GoDutch meal1 = new GoDutch(f,b);
         System.out.println("Each friend should pay: ");
         System.out.print(meal1.getEachFriendPay());
+
+        scan.close();
 
     }
 
