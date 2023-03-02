@@ -28,13 +28,46 @@ public class QuadraticEquation {
     }
 
     public double Discriminant (){
-        return pow(b,2)-4*a*c;
+        return (pow(b,2))-(4*a*c);
     }
 
+
     public double rootPlus(){
-        return (-b + sqrt(this.Discriminant()))/2+a;
+        return (-b + sqrt(this.Discriminant()))/(2*a);
     }
     public double rootMinus(){
-        return (-b + sqrt(this.Discriminant()))/2+a;
+        return (-b - sqrt(this.Discriminant()))/(2*a);
+    }
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        double a = scan.nextDouble();
+        double b = scan.nextDouble();
+        double c = scan.nextDouble();
+
+        QuadraticEquation rabbit = new QuadraticEquation(a,b,c);
+
+        if(rabbit.Discriminant()<0){
+            System.out.println("no roots");
+        }else if(rabbit.Discriminant()==0){
+
+            if(rabbit.rootPlus()%1 ==0){
+                int answer = (int)rabbit.rootPlus();
+                System.out.println(answer);
+            }else{
+                System.out.println(rabbit.rootPlus());
+            }
+
+        }else{
+
+            if(rabbit.rootMinus()%1 == 0 && rabbit.rootPlus()!= 0){
+                System.out.println((int)rabbit.rootMinus()+" "+rabbit.rootPlus());
+            }else if(rabbit.rootMinus()%1 != 0 && rabbit.rootPlus()== 0){
+                System.out.println(rabbit.rootMinus()+" "+(int)rabbit.rootPlus());
+            }else if(rabbit.rootMinus()%1 == 0 && rabbit.rootPlus()== 0){
+                System.out.println((int)rabbit.rootMinus()+" "+(int)rabbit.rootPlus());
+            }else{
+                System.out.println(rabbit.rootMinus()+" "+rabbit.rootPlus());
+            }
+        }
     }
 }

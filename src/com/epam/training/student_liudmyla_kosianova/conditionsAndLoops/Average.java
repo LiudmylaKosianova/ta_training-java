@@ -13,7 +13,21 @@ import java.util.Scanner;
 public class Average {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        int sum=0;
+        int count=0;
+
         // Use Scanner methods to read input
+        while(number!=0){
+            //System.out.println("number is: "+number);
+            sum+=number;
+            System.out.println("sum is: "+sum);
+            count++;
+            System.out.println("count is "+count);
+
+            number = scanner.nextInt();
+        }
+        System.out.println(sum/count);
 
     }
 
