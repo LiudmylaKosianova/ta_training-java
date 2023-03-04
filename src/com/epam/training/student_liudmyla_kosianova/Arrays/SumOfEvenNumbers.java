@@ -13,6 +13,9 @@ package com.epam.training.student_liudmyla_kosianova.Arrays;
  public class SumOfEvenNumbers {
      public static int theSum(int[] array){
          int evenSum = 0;
+         if(array == null || array.length==0){
+             return evenSum;
+         }
          for(int i: array){
              if(i%2==0){
                  evenSum+=i;
@@ -24,5 +27,8 @@ package com.epam.training.student_liudmyla_kosianova.Arrays;
          int[]vals = new int[]{-2,10,0,5};
          int result = SumOfEvenNumbers.theSum(vals);
          System.out.println(result == 8); // true
+         int[] valsN = null;
+         int result2 = SumOfEvenNumbers.theSum(valsN);
+         System.out.println(result2 == 0);
      }
 }
