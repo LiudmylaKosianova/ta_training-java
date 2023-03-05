@@ -45,8 +45,11 @@ public class LocalMaximaRemove {
     public  static void main(String [] agrus){
         int[] toCheck = {18, 1, 3, 6, 7, -5};
         int[] newArray = LocalMaximaRemove.removeLocalMaxima(toCheck);
-        //System.out.println(Arrays.toString(newArray));
+        System.out.println(Arrays.toString(newArray));
         System.out.println(Arrays.equals(new int[]{1, 3, 6, -5},newArray));
+        int[] toCheck1 = {1,77,0,91,-4,1,1000,1001};
+        int[] newArray1 = LocalMaximaRemove.removeLocalMaxima(toCheck1);
+        System.out.println(Arrays.toString(newArray1));
     }
 
 }
