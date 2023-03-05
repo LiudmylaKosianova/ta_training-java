@@ -31,7 +31,18 @@ public class CycleSwap {
         }
 
         array[0]=last;
+    }
 
+    public static void cycleSwap(int[] array, int shift){
+        if(array.length==shift) {return;}
+        //creates the identical array
+        int[] twin = new int[array.length];
+        System.arraycopy(array,0,twin,0,array.length);
+
+        int blue = array.length - shift;
+
+        System.arraycopy(twin,blue,array, 0,shift);
+        System.arraycopy(twin,0,array, shift,blue);
 
     }
     public static void main(String[] args){
@@ -39,6 +50,13 @@ public class CycleSwap {
         CycleSwap.cycleSwap(array);
         System.out.println(Arrays.toString(array));
         System.out.println(Arrays.equals(array,new int[]{4, 1, 3, 2, 7}));
+        int[] array2 = new int[]{ 1, 3, 2, 7, 4 };
+        CycleSwap.cycleSwap(array2,2);
+        System.out.println(Arrays.toString(array2));
+        System.out.println(Arrays.equals(array2,new int[]{7,4, 1, 3, 2}));
+
+
+
     }
 
 }
