@@ -9,9 +9,13 @@ public class MatricesMultiplication {
         for(int i=0; i<first.length; i++){
             for(int yoyo = 0; yoyo<second[i].length;yoyo++) {
                 for (int j = 0; j < second.length; j++) {
-                    theSum = first[i][j] * second[j][i];
+                    theSum += first[i][j] * second[j][yoyo];
+                    System.out.println("first is:"+first[i][j]+" second is:"+second[j][i]);
+                    System.out.println("theSum is:"+theSum);
                 }
                 product[i][yoyo]=theSum;
+                System.out.println("i is:"+i+" yoyo is:"+yoyo);
+                theSum=0;
             }
 
         }
