@@ -1,14 +1,14 @@
 package com.epam.training.student_liudmyla_kosianova.Arrays;
 
 public class MatricesMultiplication {
-    public int[][] multiplication(int[][]first, int[][]second){
+    public static int[][] multiplication(int[][]first, int[][]second){
         int[][]product = new int [first.length][second[0].length];
         int theSum = 0;
         int number = first.length;
 
-        for(int i=0; i<number; i++){
-            for(int yoyo = 0; yoyo<second.length;yoyo++) {
-                for (int j = 0; j < number; j++) {
+        for(int i=0; i<first.length; i++){
+            for(int yoyo = 0; yoyo<second[i].length;yoyo++) {
+                for (int j = 0; j < second.length; j++) {
                     theSum = first[i][j] * second[j][i];
                 }
                 product[i][yoyo]=theSum;
@@ -18,7 +18,7 @@ public class MatricesMultiplication {
         return product;
     }
 
-    public void main(String[] args){
+    public static void main(String[] args){
         int[][] first={{1, 2, 3},
                 {4, 5, 6}};
         int[][] second = {{7 , 8},
@@ -26,6 +26,12 @@ public class MatricesMultiplication {
             {11, 12}};
 
         int[][] product = multiplication(first, second);
+
+        for (int i = 0; i < product.length; i++) {
+            for (int j = 0; j < product[i].length; j++) {
+                System.out.print(String.format("%4s", product[i][j]));
+            }
+            System.out.println();}
 
 
     }
