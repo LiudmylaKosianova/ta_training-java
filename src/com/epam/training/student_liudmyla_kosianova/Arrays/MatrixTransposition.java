@@ -6,7 +6,7 @@ public class MatrixTransposition {
     public static int[][] transpose(int[][] matrixx){
         int rows = matrixx.length;
         int columns = matrixx[0].length;
-        int[][] transpose = new int [rows][columns];
+        int[][] transpose = new int [columns][rows];
         for (int i = 0; i < matrixx.length; i++) {
             for (int j = 0; j < matrixx[i].length; j++){
                 transpose[j][i] = matrixx[i][j];
