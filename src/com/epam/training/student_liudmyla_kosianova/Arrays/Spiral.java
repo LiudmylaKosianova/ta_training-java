@@ -15,6 +15,9 @@ package com.epam.training.student_liudmyla_kosianova.Arrays;
 public class Spiral {
     public static int[][] spiral(int rows, int columns){
         int [][] ravlyk = new int[rows][columns];
+        int finalNumber = rows*columns;
+
+
 
         return ravlyk;
     }
