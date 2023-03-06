@@ -2,19 +2,22 @@ package com.epam.training.student_liudmyla_kosianova.Arrays;
 
 public class MatricesMultiplication {
     public static int[][] multiplication(int[][]first, int[][]second){
-        int[][]product = new int [first.length][second[0].length];
-        int theSum = 0;
-        int number = first.length;
+        int firstRow = first.length;
+        int firstColumn = first[0].length;
+        int secondRow = second.length;
+        int secondColumn = second[0].length;
 
-        for(int i=0; i<first.length; i++){
-            for(int yoyo = 0; yoyo<second[i].length;yoyo++) {
-                for (int j = 0; j < second.length; j++) {
+        int[][]product = new int [firstRow][secondColumn];
+        int theSum = 0;
+
+
+        for(int i=0; i<firstRow; i++){
+            for(int yoyo = 0; yoyo<secondColumn; yoyo++) {
+                for (int j = 0; j<secondRow; j++) {
                     theSum += first[i][j] * second[j][yoyo];
-                    System.out.println("first is:"+first[i][j]+" second is:"+second[j][i]);
-                    System.out.println("theSum is:"+theSum);
                 }
                 product[i][yoyo]=theSum;
-                System.out.println("i is:"+i+" yoyo is:"+yoyo);
+
                 theSum=0;
             }
 
@@ -23,11 +26,10 @@ public class MatricesMultiplication {
     }
 
     public static void main(String[] args){
-        int[][] first={{1, 2, 3},
-                {4, 5, 6}};
-        int[][] second = {{7 , 8},
-            {9 , 10},
-            {11, 12}};
+        int[][] first={{0,1},{3, 5},{7,8}};
+        int[][] second = {{1,2,3}, {4,5,6}};
+
+
 
         int[][] product = multiplication(first, second);
 
