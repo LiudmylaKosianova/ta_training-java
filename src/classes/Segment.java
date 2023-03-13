@@ -1,6 +1,7 @@
 package classes;
-import java.awt.*;
+
 import static java.lang.Math.*;
+import static java.lang.StrictMath.pow;
 
 /**
  * Please, implement the following methods of class Segment:
@@ -19,44 +20,81 @@ import static java.lang.Math.*;
  * Please, note that intersection point must lay on both segments.
  */
 public class Segment {
-    Point start, end;
+
+    public Point start = new Point(0, 0);
+    public Point end = new Point(0, 0);
 
     public Segment(Point start, Point end) {
-        if(start==end){
-            throw new IllegalArgumentException();
+        if (start.getX() == end.getX() && start.getY()==end.getY()) {
+            throw new RuntimeException("not legal argument");
         }
         this.start = start;
         this.end = end;
-    }
-
-    public double length(){
-        return sqrt( pow((this.end.x - this.start.x),2) + pow((this.end.y - this.start.y),2));
-    }
-    public Point middle(){
-        return new Point((this.start.x + this.end.x)/2, (this.start.y + this.end.y)/2);
 
     }
 
-    public Point intersection(Segment another){
-        int slopeAnother = (another.start.y - another.end.y) / (another.start.x - another.end.x);
-        int slopeThis = (this.start.y - this.end.y)/(this.start.x - this.end.x);
-        if(slopeThis==slopeAnother){
+    public double length() {
+        return sqrt(pow((this.end.getX() - this.start.getX()), 2) + pow((this.end.getY() - this.start.getY()), 2));
+
+    }
+
+    public Point middle() {
+        double x = (this.start.getX() + this.end.getX()) / 2;
+        double y = (this.start.getY() + this.end.getY()) / 2;
+        return new Point(x, y);
+
+    }
+
+    Point intersection(Segment another) {
+        //if the slopes are the same, they are parallel, or they are the same line
+        double slopeAnother = (another.start.getY() - another.end.getY()) / (another.start.getX() - another.end.getX());
+        double slopeThis = (this.start.getY() - this.end.getY()) / (this.start.getX() - this.end.getX());
+
+        if (slopeThis == slopeAnother) {
             return null;
         }
 
-        int t = ( (this.start.x - another.start.x)*(another.start.y -another.end.y) - (this.start.y -another.start.y)*(another.start.x - another.end.x) )/ ((this.start.x - this.end.x)*(another.start.y - another.end.y) - (this.start.y - this.end.y)*(another.start.x - another.end.x));
-        int u = ( (this.start.x - another.start.x)*(this.start.y - this.end.y) - (this.start.y - another.start.y)*(this.start.x - this.end.x) ) / ( (this.start.x - this.end.x)*(another.start.y - another.end.y) - (this.start.y - this.end.y)*(another.start.x - another.end.x) );
+        //calculate the intersection point
+        double x1 = this.start.getX();
+        double x2 = this.end.getX();
+        double y1 = this.start.getY();
+        double y2 = this.end.getY();
 
-        //There will be an intersection if 0 ≤ t ≤ 1 and 0 ≤ u ≤ 1.
+        double x3 = another.start.getX();
+        double x4 = another.end.getX();
+        double y3 = another.start.getY();
+        double y4 = another.end.getY();
 
-        int intersectionPointX, intersectionPointY;
 
-        if (  ( (t>=0)&&(t<=1) ) && ( (u>=0)&&(u<=1) ) ){
-             // calculate a Point
-            intersectionPointX= this.start.x +t*(this.end.x - this.start.x);
-            intersectionPointY = this.start.y + t*(this.end.y - this.start.y);
-        } else{return null;}
+        double t = ( (x1 - x3)*(y3-y4) - (y1 - y3)*(x3 - x4) ) / ( (x1-x2)*(y3-y4) - (y1-y2)*(x3-x4) );
+        double u = ( (x1 - x3)*(y1-y2) - (y1 - y3)*(x1-x2) ) / ( (x1-x2)*(y3-y4) - (y1-y2)*(x3-x4) );
 
-        return new Point(intersectionPointX, intersectionPointY);
+        if ((t < 0 || t > 1) || (u < 0 || u > 1)) {
+            return null;
+        }
+
+        double interX = x1 + t*(x2-x1);
+        double interY = y1 + t*(y2-y1);
+
+
+        return new Point(interX, interY);
+    }
+
+
+    public static void main(String[] args) {
+
+        double length = new Segment(new Point(0, 0), new Point(3, 4)).length();
+        System.out.println(length);
+
+        Segment first = new Segment(new Point(0, 0), new Point(4, 4));
+        Segment second = new Segment(new Point(2, 0), new Point(0, 2));
+        Point intersection = first.intersection(second);
+
+        System.out.println(intersection.getX());
+        System.out.println(intersection.getY());
+
+        Point redSofa = new Point (1.1, 1.1);
+        Point greenSofa = new Point (1.1, 1.1);
+        Segment endEqualsStart = new Segment(redSofa,greenSofa);
     }
 }
