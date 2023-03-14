@@ -30,25 +30,32 @@ public class Triangle {
         return length_ab + length_bc > length_ca;
     }
 
-    double area(Triangle triangle){
-        double aSide = new Segment(a,b).length();
-        double bSide = new Segment(b,c).length();
-        double cSide = new Segment(c,a).length();
+    public double area(){
+        double aSide = new Segment(this.a,this.b).length();
+        double bSide = new Segment(this.b,this.c).length();
+        double cSide = new Segment(this.c,this.a).length();
 
         double semiP = (aSide+bSide+cSide)/2;
         return sqrt(semiP* (semiP-aSide)*(semiP-bSide)*(semiP-cSide));
 
     }
 
-    Point centroid(Triangle triangle){
-        double centroidX = ( triangle.a.getX() + triangle.b.getX() + triangle.c.getX() ) / 3;
-        double centroidY = ( triangle.a.getY() + triangle.b.getY() + triangle.c.getY() ) / 3;
+    public Point centroid(){
+        double centroidX = ( this.a.getX() + this.b.getX() + this.c.getX() ) / 3;
+        double centroidY = ( this.a.getY() + this.b.getY() + this.c.getY() ) / 3;
 
         return new Point(centroidX,centroidY);
     }
 
     public static void main (String[] args){
-        new Triangle(new Point(0,0), new Point(1, 0), new Point(2, 0));
+        //new Triangle(new Point(0,0), new Point(1, 0), new Point(2, 0));
+        double area = new Triangle(new Point(0,0), new Point(3, 0), new Point(0, 4)).area();
+        System.out.println(area);
+
+        Point centroid = new Triangle(new Point(0,0), new Point(3, 0), new Point(0, 3)).centroid();
+
+        System.out.println(centroid.getX());
+        System.out.println(centroid.getY());
     }
 
 
