@@ -107,16 +107,16 @@ public class DecrementingCarousel {
         DecrementingCarousel carousel = new DecrementingCarousel(7);
         //System.out.println(carousel.getLength()+" is the length of contain");
         //System.out.println(carousel.getCapacity()+" is current capacity");
-        System.out.println(carousel.getElement(0)+" is element [0] of contain");
-        System.out.println(carousel.getElement(1)+" is element [1] of contain");
-        System.out.println(carousel.getElement(2)+" is element [2] of contain");
+        //System.out.println(carousel.getElement(0)+" is element [0] of contain");
+        //System.out.println(carousel.getElement(1)+" is element [1] of contain");
+        //System.out.println(carousel.getElement(2)+" is element [2] of contain");
 
         carousel.addElement(2);
         carousel.addElement(3);
         carousel.addElement(1);
-        System.out.println(carousel.getElement(0)+" is element [0] of contain");
-        System.out.println(carousel.getElement(1)+" is element [0] of contain");
-        System.out.println(carousel.getElement(2)+" is element [2] of contain");
+        //System.out.println(carousel.getElement(0)+" is element [0] of contain");
+       // System.out.println(carousel.getElement(1)+" is element [0] of contain");
+        //System.out.println(carousel.getElement(2)+" is element [2] of contain");
 
         CarouselRun run = carousel.run();
         System.out.println("Is running finished?");

@@ -46,18 +46,20 @@ public class CarouselRun {
 
         if(onlyZeros()){
             System.out.println("I have returned -1");
-            return -1;}
-
-        int willReturn = containRunning[currentPosition];
-        System.out.println("willReturn is: "+willReturn+" currentPosition is: "+currentPosition);
-        if (containRunning[currentPosition] != 0) {
-            containRunning[currentPosition]--;
-            currentPosition++;
+            return -1;
         }
 
-        return willReturn;
 
-
+        //System.out.println("willReturn is: "+willReturn+" currentPosition is: "+currentPosition);
+        while(containRunning[currentPosition]==0 && currentPosition< containRunning.length-1){
+            currentPosition++;
+        }
+        if (containRunning[currentPosition] != 0) {
+            int willReturn = containRunning[currentPosition];
+            containRunning[currentPosition]--;
+            currentPosition++;
+            return willReturn;
+        }
     }
 
         //Ferrari's ideas:
