@@ -44,8 +44,14 @@ public class CarouselRun extends DecrementingCarousel {
 
         if(onlyZeros()){ return -1;}
 
+        int willReturn = this.getContain()[currentPosition];
+        if(this.getContain()[currentPosition]!=0){
+            this.getContain()[currentPosition]--;}
         currentPosition++;
-        return this.getContain()[currentPosition];
+        return willReturn;
+//Ferrari's ideas:
+// currentPosition++;
+// return this.getContain()[currentPosition];
 
 
     }
