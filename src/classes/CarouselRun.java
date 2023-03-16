@@ -1,7 +1,6 @@
 package classes;
 
-import java.util.Arrays;
-import java.util.HashSet;
+
 
 /**
  *  The CarouselRun iterates over elements in the order of their insertion.
@@ -15,11 +14,12 @@ import java.util.HashSet;
  * <p>
  * boolean isFinished() - when there is no more elements to decrease, returns true. Otherwise, returns false.
  */
-public class CarouselRun extends DecrementingCarousel {
+public class CarouselRun {
 
     int currentPosition = 0;
-    public CarouselRun(int capacity) {
-        super(capacity);
+    int [] containRunning;
+    public CarouselRun(int[]arry) {
+        this.containRunning = arry;
     }
 
     /**
@@ -28,9 +28,11 @@ public class CarouselRun extends DecrementingCarousel {
      * @return true, if all the elements in the "contain" are 0s
      */
     public boolean onlyZeros (){
-        for(int element: this.getContain()){
-            if(element!=0){return false;}
+        for(int element: containRunning){
+            if(element!=0){
+               return false;}
         }
+
         return true;
     }
 
@@ -42,20 +44,31 @@ public class CarouselRun extends DecrementingCarousel {
         // then: switches to the next element in insertion order. Skips zero elements.
         // }
 
-        if(onlyZeros()){ return -1;}
+        if(onlyZeros()){
+            System.out.println("I have returned -1");
+            return -1;}
 
-        int willReturn = this.getContain()[currentPosition];
-        if(this.getContain()[currentPosition]!=0){
-            this.getContain()[currentPosition]--;}
-        currentPosition++;
+        int willReturn = containRunning[currentPosition];
+        System.out.println("willReturn is: "+willReturn+" currentPosition is: "+currentPosition);
+        if (containRunning[currentPosition] != 0) {
+            containRunning[currentPosition]--;
+            currentPosition++;
+        }
+
         return willReturn;
-//Ferrari's ideas:
+
+
+    }
+
+        //Ferrari's ideas:
 // currentPosition++;
 // return this.getContain()[currentPosition];
 
 
-    }
+
     public boolean isFinished(){
-        return this.next() != -1;
+        return onlyZeros();
     }
+
+
 }

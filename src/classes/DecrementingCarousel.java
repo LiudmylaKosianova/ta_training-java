@@ -21,29 +21,43 @@ import java.util.ArrayList;
  * Specification Details
  * DecrementingCarousel has two public methods:
  * <p>
- * boolean addElement(int element) - adds an element. If element is negative or zero, do not add the element. If container is full, do not add the element. If the run method was called to create a CarouselRun, do not add the element. If element is added successfully, return true. Return false otherwise.
- * CarouselRun run() - returns a CarouselRun to iterate over the elements. If the run method has already been called earlier, it must return null: DecrementingCarousel may generate only one CarouselRun object.
- * CarouselRun has two public methods:
+ * boolean addElement(int element) - adds an element. If element is negative or zero, do not add the element.
+ * If container is full, do not add the element. If the run method was called to create a CarouselRun, do not add the element.
+ * If element is added successfully, return true. Return false otherwise.
  * <p>
+ * CarouselRun run() - returns a CarouselRun to iterate over the elements.
+ * If the run method has already been called earlier,
+ * it must return null: DecrementingCarousel may generate only one CarouselRun object.
+ * <p>
+ * CarouselRun has two public methods:
  * int next() - returns the current value of the current element, then decreases the current element by one and switches to the next element in insertion order. Skips zero elements. When there is no more elements to decrease, returns -1.
  * boolean isFinished() - when there is no more elements to decrease, returns true. Otherwise, returns false.
  */
 
 public class DecrementingCarousel {
     private int capacity;
-    private int[] contain = new int[capacity];
+    private int[] contain;
 
     public DecrementingCarousel(int capacity) {
         this.capacity = capacity;
         this.contain = new int[capacity];
     }
 
+    /**
+     *  boolean addElement(int element) - adds an element.
+     *  If element is negative or zero, do not add the element.
+     *  If container is full, do not add the element.
+     *  If the run method was called to create a CarouselRun, do not add the element.
+     *  If element is added successfully, return true. Return false otherwise.
+     */
     public boolean addElement(int element) {
+        int number = contain.length;
 
         if (element > 0 && capacity > 0) {
-            //
-            contain[capacity-1] = element;
+
+            contain[number-capacity] = element;
             capacity--;
+
             return true;
         } else {return false;
             //throw new UnsupportedOperationException("I am unhappy with this element, bu");
@@ -58,27 +72,54 @@ public class DecrementingCarousel {
     public int[] getContain() {
         return contain;
     }
+    public int getElement(int in){
+        return contain [in];
+    }
+    public int getLength(){
+        return contain.length;
+    }
 
+    public void printContain(){
+        for(int i=0; i< contain.length; i++){
+            System.out.print(contain[i]+", ");
+        }
+    }
+
+    /**
+     * CarouselRun run() - returns a CarouselRun to iterate over the elements.
+     *  * If the run method has already been called earlier,
+     *  * it must return null: DecrementingCarousel may generate only one CarouselRun object.
+     */
     public CarouselRun run() {
-        throw new UnsupportedOperationException();
+        //if(the run method has already been called earlier){return null;}
+        //System.out.println(contain[1]+" element 1 of contain");
+        return new CarouselRun(contain);
     }
 
     public static void main(String[] args) {
 
         //empty case
-        CarouselRun run = new DecrementingCarousel(7).run();
+        /*CarouselRun run = new DecrementingCarousel(7).run();
         System.out.println(run.isFinished()); //true
-        System.out.println(run.next()); //-1
+        System.out.println(run.next()); //-1*/
 
         //regular case
         DecrementingCarousel carousel = new DecrementingCarousel(7);
+        //System.out.println(carousel.getLength()+" is the length of contain");
+        //System.out.println(carousel.getCapacity()+" is current capacity");
+        System.out.println(carousel.getElement(0)+" is element [0] of contain");
+        System.out.println(carousel.getElement(1)+" is element [1] of contain");
+        System.out.println(carousel.getElement(2)+" is element [2] of contain");
 
         carousel.addElement(2);
         carousel.addElement(3);
         carousel.addElement(1);
+        System.out.println(carousel.getElement(0)+" is element [0] of contain");
+        System.out.println(carousel.getElement(1)+" is element [0] of contain");
+        System.out.println(carousel.getElement(2)+" is element [2] of contain");
 
         CarouselRun run = carousel.run();
-
+        System.out.println("Is running finished?");
         System.out.println(run.isFinished()); //false
 
         System.out.println(run.next()); //2
@@ -94,7 +135,7 @@ public class DecrementingCarousel {
         System.out.println(run.next()); //-1
 
         //Refusing adding more elements case:
-        DecrementingCarousel carousel1 = new DecrementingCarousel(3);
+     /*   DecrementingCarousel carousel1 = new DecrementingCarousel(3);
 
         System.out.println(carousel.addElement(-2)); //false
         System.out.println(carousel.addElement(0)); //false
@@ -136,7 +177,7 @@ public class DecrementingCarousel {
         //Refusing to create more than one CarouselRun:
         DecrementingCarousel carousel = new DecrementingCarousel(10);
         System.out.println(carousel.run() == null); //false
-        System.out.println(carousel.run() == null); //true
+        System.out.println(carousel.run() == null); //true*/
     }
 
 }
