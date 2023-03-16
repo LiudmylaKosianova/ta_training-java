@@ -94,7 +94,7 @@ public class DecrementingCarousel {
         System.out.println(run.next()); //-1
 
         //Refusing adding more elements case:
-        DecrementingCarousel carousel = new DecrementingCarousel(3);
+        DecrementingCarousel carousel1 = new DecrementingCarousel(3);
 
         System.out.println(carousel.addElement(-2)); //false
         System.out.println(carousel.addElement(0)); //false
