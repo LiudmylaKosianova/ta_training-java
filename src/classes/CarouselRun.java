@@ -41,7 +41,8 @@ public class CarouselRun {
         //else{
         // first: return the current value of the current element,
         // then: decreases the current element by one
-        // then: switches to the next element in insertion order. Skips zero elements.
+        // then: switches to the next element in insertion order.
+        // NB: Skip zero elements.
         // }
 
         if(onlyZeros()){
@@ -49,17 +50,21 @@ public class CarouselRun {
             return -1;
         }
 
+        if (containRunning[currentPosition]==0){
+            while(containRunning[currentPosition]==0){
+                currentPosition++;
+                if(currentPosition == containRunning.length-1){
+                    System.out.println("I need to start from the beginning, currentPosition is: "+currentPosition);
+                    currentPosition=0;
+                }
+            }
+        }
 
-        //System.out.println("willReturn is: "+willReturn+" currentPosition is: "+currentPosition);
-        while(containRunning[currentPosition]==0 && currentPosition< containRunning.length-1){
-            currentPosition++;
-        }
-        if (containRunning[currentPosition] != 0) {
-            int willReturn = containRunning[currentPosition];
-            containRunning[currentPosition]--;
-            currentPosition++;
-            return willReturn;
-        }
+        int willReturn = containRunning[currentPosition];
+        containRunning[currentPosition]--;
+        currentPosition++;
+
+        return willReturn;
     }
 
         //Ferrari's ideas:
