@@ -53,22 +53,19 @@ public class DecrementingCarousel {
     public boolean addElement(int element) {
         int number = contain.length;
 
-        if (element > 0 && capacity > 0) {
+        if (element > 0 && capacity > 0) { //&& run method was not called to create a CarouselRun
 
             contain[number-capacity] = element;
             capacity--;
 
             return true;
-        } else {return false;
-            //throw new UnsupportedOperationException("I am unhappy with this element, bu");
-        }
+        } else {return false;}
 
     }
 
     public int getCapacity() {
         return capacity;
     }
-
     public int[] getContain() {
         return contain;
     }
@@ -79,20 +76,13 @@ public class DecrementingCarousel {
         return contain.length;
     }
 
-    public void printContain(){
-        for(int i=0; i< contain.length; i++){
-            System.out.print(contain[i]+", ");
-        }
-    }
-
     /**
      * CarouselRun run() - returns a CarouselRun to iterate over the elements.
-     *  * If the run method has already been called earlier,
-     *  * it must return null: DecrementingCarousel may generate only one CarouselRun object.
+     * If the run method has already been called earlier,
+     *  it must return null: DecrementingCarousel may generate only one CarouselRun object.
      */
     public CarouselRun run() {
         //if(the run method has already been called earlier){return null;}
-        //System.out.println(contain[1]+" element 1 of contain");
         return new CarouselRun(contain);
     }
 

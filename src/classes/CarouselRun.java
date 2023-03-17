@@ -18,14 +18,14 @@ public class CarouselRun {
 
     int currentPosition = 0;
     int [] containRunning;
-    public CarouselRun(int[]arry) {
-        this.containRunning = arry;
+    public CarouselRun(int[]greenSofa) {
+        this.containRunning = greenSofa;
     }
 
     /**
      * I need this method, because I need to check
-     * if all the numbers in the "contain" are zeros or not
-     * @return true, if all the elements in the "contain" are 0s
+     * if all the numbers in the "containRunning" are zeros or not
+     * @return true, if all the elements in the "containRunning" are zeros
      */
     public boolean onlyZeros (){
         for(int element: containRunning){
@@ -36,20 +36,19 @@ public class CarouselRun {
         return true;
     }
 
+    /**
+     * int next() - returns the current value of the current element,
+     * then decreases the current element by one
+     * and switches to the next element in insertion order. Skips zero elements.
+     * When there is no more elements to decrease, returns -1.
+     */
     public int next(){
-        //if (all numbers inside the "contain" == 0){return -1;}
-        //else{
-        // first: return the current value of the current element,
-        // then: decreases the current element by one
-        // then: switches to the next element in insertion order.
-        // NB: Skip zero elements.
-        // }
 
         if(onlyZeros()){
-            //System.out.println("I have returned -1");
             return -1;
         }
-        //the value of the current element can't be 0. Let's find it
+        //the value of the current element can't be zero, since we should skip zero elements
+        // Let's find the currentPosition, that points to not a zero element
 
         while(containRunning[currentPosition]==0){
             currentPosition++;
@@ -58,9 +57,11 @@ public class CarouselRun {
             }
         }
 
-        int willReturn = containRunning[currentPosition];
+        int willReturn = containRunning[currentPosition];//I'm so happy it is not zero )))
         containRunning[currentPosition]--;
         currentPosition++;
+        //make sure that currentPosition is not bigger, than the length of containRunning
+        //if it is bigger, that I need to start from the beginning
         if(currentPosition==containRunning.length){
             currentPosition=0;
         }
