@@ -99,24 +99,16 @@ public class DecrementingCarousel {
     public static void main(String[] args) {
 
         //empty case
-        /*CarouselRun run = new DecrementingCarousel(7).run();
+       /* CarouselRun run = new DecrementingCarousel(7).run();
         System.out.println(run.isFinished()); //true
-        System.out.println(run.next()); //-1*/
-
+        System.out.println(run.next()); //-1
+*/
         //regular case
-        DecrementingCarousel carousel = new DecrementingCarousel(7);
-        //System.out.println(carousel.getLength()+" is the length of contain");
-        //System.out.println(carousel.getCapacity()+" is current capacity");
-        //System.out.println(carousel.getElement(0)+" is element [0] of contain");
-        //System.out.println(carousel.getElement(1)+" is element [1] of contain");
-        //System.out.println(carousel.getElement(2)+" is element [2] of contain");
+       /* DecrementingCarousel carousel = new DecrementingCarousel(7);
 
         carousel.addElement(2);
         carousel.addElement(3);
         carousel.addElement(1);
-        //System.out.println(carousel.getElement(0)+" is element [0] of contain");
-       // System.out.println(carousel.getElement(1)+" is element [0] of contain");
-        //System.out.println(carousel.getElement(2)+" is element [2] of contain");
 
         CarouselRun run = carousel.run();
         System.out.println("Is running finished?");
@@ -132,10 +124,10 @@ public class DecrementingCarousel {
         System.out.println(run.next()); //1
 
         System.out.println(run.isFinished()); //true
-        System.out.println(run.next()); //-1
+        System.out.println(run.next()); //-1*/
 
         //Refusing adding more elements case:
-     /*   DecrementingCarousel carousel1 = new DecrementingCarousel(3);
+        DecrementingCarousel carousel = new DecrementingCarousel(3);
 
         System.out.println(carousel.addElement(-2)); //false
         System.out.println(carousel.addElement(0)); //false
@@ -161,7 +153,7 @@ public class DecrementingCarousel {
         System.out.println(run.isFinished()); //true
         System.out.println(run.next()); //-1
 
-        //Refusing to add more elements after "run" was called:
+       /* //Refusing to add more elements after "run" was called:
         DecrementingCarousel carousel = new DecrementingCarousel(10);
 
         System.out.println(carousel.addElement(2)); //true

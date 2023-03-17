@@ -46,24 +46,24 @@ public class CarouselRun {
         // }
 
         if(onlyZeros()){
-            System.out.println("I have returned -1");
+            //System.out.println("I have returned -1");
             return -1;
         }
+        //the value of the current element can't be 0. Let's find it
 
-        if (containRunning[currentPosition]==0){
-            while(containRunning[currentPosition]==0){
-                currentPosition++;
-                if(currentPosition == containRunning.length-1){
-                    System.out.println("I need to start from the beginning, currentPosition is: "+currentPosition);
-                    currentPosition=0;
-                }
+        while(containRunning[currentPosition]==0){
+            currentPosition++;
+            if(currentPosition==containRunning.length){
+                currentPosition=0;
             }
         }
 
         int willReturn = containRunning[currentPosition];
         containRunning[currentPosition]--;
         currentPosition++;
-
+        if(currentPosition==containRunning.length){
+            currentPosition=0;
+        }
         return willReturn;
     }
 
