@@ -53,14 +53,14 @@ public class DecrementingCarousel {
     public boolean addElement(int element) {
         int number = contain.length;
 
-        if (element > 0 && capacity > 0) { //&& run method was not called to create a CarouselRun
-
+        if (element > 0 && capacity > 0 && isAlreadyRun == false) { //&& run method was not called to create a CarouselRun
             contain[number-capacity] = element;
             capacity--;
 
             return true;
-        } else {return false;}
-
+        } else {
+            return false;
+        }
     }
 
     public int getCapacity() {
@@ -81,9 +81,18 @@ public class DecrementingCarousel {
      * If the run method has already been called earlier,
      *  it must return null: DecrementingCarousel may generate only one CarouselRun object.
      */
+
+    private boolean isAlreadyRun = false;
+    
     public CarouselRun run() {
         //if(the run method has already been called earlier){return null;}
-        return new CarouselRun(contain);
+        if (!isAlreadyRun) {
+            isAlreadyRun = true;
+            return new CarouselRun(contain);
+        } else {
+            return null;
+        }
+        
     }
 
     public static void main(String[] args) {
@@ -117,49 +126,49 @@ public class DecrementingCarousel {
         System.out.println(run.next()); //-1*/
 
         //Refusing adding more elements case:
-        DecrementingCarousel carousel = new DecrementingCarousel(3);
+        // DecrementingCarousel carousel = new DecrementingCarousel(3);
 
-        System.out.println(carousel.addElement(-2)); //false
-        System.out.println(carousel.addElement(0)); //false
+        // System.out.println(carousel.addElement(-2)); //false
+        // System.out.println(carousel.addElement(0)); //false
 
-        System.out.println(carousel.addElement(2)); //true
-        System.out.println(carousel.addElement(3)); //true
-        System.out.println(carousel.addElement(1)); //true
+        // System.out.println(carousel.addElement(2)); //true
+        // System.out.println(carousel.addElement(3)); //true
+        // System.out.println(carousel.addElement(1)); //true
 
-        //carousel is full
-        System.out.println(carousel.addElement(2)); //false
+        // //carousel is full
+        // System.out.println(carousel.addElement(2)); //false
 
-        CarouselRun run = carousel.run();
+        // CarouselRun run = carousel.run();
 
-        System.out.println(run.next()); //2
-        System.out.println(run.next()); //3
-        System.out.println(run.next()); //1
+        // System.out.println(run.next()); //2
+        // System.out.println(run.next()); //3
+        // System.out.println(run.next()); //1
 
-        System.out.println(run.next()); //1
-        System.out.println(run.next()); //2
+        // System.out.println(run.next()); //1
+        // System.out.println(run.next()); //2
 
-        System.out.println(run.next()); //1
+        // System.out.println(run.next()); //1
 
-        System.out.println(run.isFinished()); //true
-        System.out.println(run.next()); //-1
+        // System.out.println(run.isFinished()); //true
+        // System.out.println(run.next()); //-1
 
-       /* //Refusing to add more elements after "run" was called:
-        DecrementingCarousel carousel = new DecrementingCarousel(10);
+        // Refusing to add more elements after "run" was called:
+        // DecrementingCarousel carousel = new DecrementingCarousel(10);
 
-        System.out.println(carousel.addElement(2)); //true
-        System.out.println(carousel.addElement(3)); //true
-        System.out.println(carousel.addElement(1)); //true
+        // System.out.println(carousel.addElement(2)); //true
+        // System.out.println(carousel.addElement(3)); //true
+        // System.out.println(carousel.addElement(1)); //true
 
-        carousel.run();
+        // carousel.run();
 
-        System.out.println(carousel.addElement(2)); //false
-        System.out.println(carousel.addElement(3)); //false
-        System.out.println(carousel.addElement(1)); //false
+        // System.out.println(carousel.addElement(2)); //false
+        // System.out.println(carousel.addElement(3)); //false
+        // System.out.println(carousel.addElement(1)); //false
 
         //Refusing to create more than one CarouselRun:
-        DecrementingCarousel carousel = new DecrementingCarousel(10);
-        System.out.println(carousel.run() == null); //false
-        System.out.println(carousel.run() == null); //true*/
+        DecrementingCarousel carousel1 = new DecrementingCarousel(10);
+        System.out.println(carousel1.run() == null); //false
+        System.out.println(carousel1.run() == null); //true*/
     }
 
 }

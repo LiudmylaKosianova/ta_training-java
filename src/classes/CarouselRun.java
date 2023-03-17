@@ -77,6 +77,4 @@ public class CarouselRun {
     public boolean isFinished(){
         return onlyZeros();
     }
-
-
 }
