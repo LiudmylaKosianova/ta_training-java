@@ -1,4 +1,4 @@
-package com.epam.training.student_liudmyla_kosianova.classes_5;
+package com.epam.training.student_liudmyla_kosianova.decrementingCarousel;
 
 
 
@@ -16,8 +16,8 @@ package com.epam.training.student_liudmyla_kosianova.classes_5;
  */
 public class CarouselRun {
 
-    int currentPosition = 0;
-    int [] containRunning;
+    protected int currentPosition = 0;
+    protected int [] containRunning;
     public CarouselRun(int[]greenSofa) {
         this.containRunning = greenSofa;
     }

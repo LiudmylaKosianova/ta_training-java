@@ -1,4 +1,4 @@
-package com.epam.training.student_liudmyla_kosianova.classes_5;
+package com.epam.training.student_liudmyla_kosianova.decrementingCarousel;
 
 /**
  * Decrementing Carousel is a container, accepting int elements. DecrementingCarousel has a maximum capacity,
@@ -34,7 +34,7 @@ package com.epam.training.student_liudmyla_kosianova.classes_5;
 
 public class DecrementingCarousel {
     private int capacity;
-    private int[] contain;
+    protected int[] contain;
 
     public DecrementingCarousel(int capacity) {
         this.capacity = capacity;
@@ -80,7 +80,7 @@ public class DecrementingCarousel {
      *  it must return null: DecrementingCarousel may generate only one CarouselRun object.
      */
 
-    private boolean isAlreadyRun = false;
+    protected boolean isAlreadyRun = false;
     
     public CarouselRun run() {
         //if(the run method has already been called earlier){return null;}

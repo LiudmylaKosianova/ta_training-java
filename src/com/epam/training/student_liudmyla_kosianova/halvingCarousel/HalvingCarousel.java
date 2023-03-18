@@ -1,7 +1,7 @@
-package com.epam.training.student_liudmyla_kosianova.introductionToOOP_6;
+package com.epam.training.student_liudmyla_kosianova.halvingCarousel;
 
-import com.epam.training.student_liudmyla_kosianova.classes_5.CarouselRun;
-import com.epam.training.student_liudmyla_kosianova.classes_5.DecrementingCarousel;
+
+import com.epam.training.student_liudmyla_kosianova.decrementingCarousel.DecrementingCarousel;
 
 /**
  * In this exercise you need to extend DecrementingCarousel.
@@ -12,20 +12,34 @@ import com.epam.training.student_liudmyla_kosianova.classes_5.DecrementingCarous
  */
 
 public class HalvingCarousel extends DecrementingCarousel {
-    public HalvingCarousel(final int capacity) {
+
+    public HalvingCarousel(int capacity) {
         super(capacity);
     }
 
+    @Override
+    public com.epam.training.student_liudmyla_kosianova.halvingCarousel.CarouselRun run() {
+
+        if (!isAlreadyRun) {
+            isAlreadyRun = true;
+            return new com.epam.training.student_liudmyla_kosianova.halvingCarousel.CarouselRun(contain);
+        } else {
+            return null;
+        }
+
+    }
+
     public static void main(String[] args) {
-        //Empty cases
+        //Empty case:
 
         /*CarouselRun run = new HalvingCarousel(7).run();
         System.out.println(run.isFinished()); //true
         System.out.println(run.next()); //-1*/
 
-        //Regular cases
+        //Regular case:
 
-        DecrementingCarousel carousel = new HalvingCarousel(7);
+        //DecrementingCarousel carousel = new HalvingCarousel(7);
+        HalvingCarousel carousel = new HalvingCarousel(7);
 
         carousel.addElement(20);
         carousel.addElement(30);
