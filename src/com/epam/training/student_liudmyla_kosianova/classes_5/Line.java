@@ -1,4 +1,5 @@
 package com.epam.training.student_liudmyla_kosianova.classes_5;
+import java.awt.*;
 
 /**
  * Please, implement the method intersection(Line) in class Line.
@@ -24,11 +25,12 @@ public class Line {
         if (this.k == line2.k){
             return null;
         }
-        Point intercept = new Point();
+
         int denominator = (this.k*-1) - (line2.k*-1);
-        intercept.x = ((-1* line2.b) - (-1*this.b))/denominator;
-        intercept.y = ((this.b* line2.k) - (line2.b*this.k))/denominator;
-        return intercept;
+        int x = ((-1* line2.b) - (-1*this.b))/denominator;
+        int y = ((this.b* line2.k) - (line2.b*this.k))/denominator;
+
+        return new Point(x,y);
     }
 
     public static void main(String[] args) {

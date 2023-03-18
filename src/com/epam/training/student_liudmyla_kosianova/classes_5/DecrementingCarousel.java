@@ -51,7 +51,7 @@ public class DecrementingCarousel {
     public boolean addElement(int element) {
         int number = contain.length;
 
-        if (element > 0 && capacity > 0 && isAlreadyRun == false) { //&& run method was not called to create a CarouselRun
+        if (element > 0 && capacity > 0 && !isAlreadyRun) { //&& run method was not called to create a CarouselRun
             contain[number-capacity] = element;
             capacity--;
 
@@ -151,7 +151,7 @@ public class DecrementingCarousel {
         // System.out.println(run.next()); //-1
 
         // Refusing to add more elements after "run" was called:
-        // DecrementingCarousel carousel = new DecrementingCarousel(10);
+        DecrementingCarousel carousel = new DecrementingCarousel(10);
 
         // System.out.println(carousel.addElement(2)); //true
         // System.out.println(carousel.addElement(3)); //true
@@ -159,9 +159,9 @@ public class DecrementingCarousel {
 
         // carousel.run();
 
-        // System.out.println(carousel.addElement(2)); //false
-        // System.out.println(carousel.addElement(3)); //false
-        // System.out.println(carousel.addElement(1)); //false
+        System.out.println(carousel.addElement(2)); //false
+        System.out.println(carousel.addElement(3)); //false
+        System.out.println(carousel.addElement(1)); //false
 
         //Refusing to create more than one CarouselRun:
         DecrementingCarousel carousel1 = new DecrementingCarousel(10);
