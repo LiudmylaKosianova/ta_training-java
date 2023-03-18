@@ -1,4 +1,4 @@
-package com.epam.training.student_liudmyla_kosianova.dataTypes_2;
+package com.epam.training.student_liudmyla_kosianova.module_2_dataTypes;
 
 import static org.junit.jupiter.api.Assertions.*;
 

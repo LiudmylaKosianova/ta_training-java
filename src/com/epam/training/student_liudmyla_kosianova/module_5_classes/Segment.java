@@ -1,4 +1,4 @@
-package com.epam.training.student_liudmyla_kosianova.classes_5;
+package com.epam.training.student_liudmyla_kosianova.module_5_classes;
 
 import static java.lang.Math.*;
 import static java.lang.StrictMath.pow;

@@ -1,5 +1,4 @@
-package com.epam.training.student_liudmyla_kosianova.classes_5;
-import java.awt.*;
+package com.epam.training.student_liudmyla_kosianova.module_5_classes;
 
 /**
  * Please, implement the method intersection(Line) in class Line.

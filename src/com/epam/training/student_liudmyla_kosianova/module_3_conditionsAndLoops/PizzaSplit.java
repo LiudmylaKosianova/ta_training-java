@@ -1,4 +1,4 @@
-package com.epam.training.student_liudmyla_kosianova.conditionsAndLoops_3;
+package com.epam.training.student_liudmyla_kosianova.module_3_conditionsAndLoops;
 import java.util.Scanner;
 
 public class PizzaSplit {

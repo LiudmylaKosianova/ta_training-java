@@ -1,4 +1,4 @@
-package com.epam.training.student_liudmyla_kosianova.arrays_4;
+package com.epam.training.student_liudmyla_kosianova.module_4_arrays;
 
 import java.util.Arrays;
 

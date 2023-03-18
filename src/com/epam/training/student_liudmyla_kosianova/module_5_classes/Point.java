@@ -1,4 +1,4 @@
-package com.epam.training.student_liudmyla_kosianova.classes_5;
+package com.epam.training.student_liudmyla_kosianova.module_5_classes;
 
 class Point {
     private double x;
