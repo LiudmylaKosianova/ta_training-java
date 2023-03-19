@@ -15,7 +15,7 @@ package com.epam.training.student_liudmyla_kosianova.sprintPlanning;
 public class Ticket {
     private String id, name;
     private int hoursToComplete;
-    private boolean completed = false;
+    public boolean completed = false;
     public Ticket(String id, String name, int number){
         this.id = id;
         this.name = name;
@@ -33,7 +33,7 @@ public class Ticket {
     protected int getEstimate(){
         return hoursToComplete;
     }
-    protected boolean isCompleted(){
+    public boolean isCompleted(){
         return completed;
     }
     protected void complete(){
