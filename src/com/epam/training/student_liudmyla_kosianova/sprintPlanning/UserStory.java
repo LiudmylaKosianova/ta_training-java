@@ -17,13 +17,13 @@ package com.epam.training.student_liudmyla_kosianova.sprintPlanning;
 public class UserStory extends Ticket {
     UserStory [] dependencies;
 
-    public UserStory(String id, String name, int number, UserStory[] dependencies) {
+    public UserStory(int id, String name, int number, UserStory[] dependencies) {
         super(id, name, number);
         this.dependencies= dependencies;
     }
 
     public String toString(){
-        return this.getId()+this.getName();
+        return "[" + this.getId() + "]" + " " + this.getName();
     }
 
     public UserStory[] getDependencies() {
@@ -41,7 +41,10 @@ public class UserStory extends Ticket {
     @Override
     public void complete (){
         for(UserStory x: dependencies){
-            this.completed = x.isCompleted();
+           if(!x.isCompleted()){
+               break;//since the completed is set to false, it will not be changed after break
+           }
         }
+        this.completed = true;
     }
 }
