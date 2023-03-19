@@ -38,14 +38,14 @@ public class HalvingCarousel extends DecrementingCarousel {
 
         //Regular case:
 
-        //DecrementingCarousel carousel = new HalvingCarousel(7);
-        HalvingCarousel carousel = new HalvingCarousel(7);
+        //DecrementingCarousel carousel = new HalvingCarousel(7); <= this line causes errors, when the CarouselRun object is created later on
+        HalvingCarousel carousel = new HalvingCarousel(7); //this line fixes the errors
 
         carousel.addElement(20);
         carousel.addElement(30);
         carousel.addElement(10);
 
-        CarouselRun run = carousel.run();
+        CarouselRun run = carousel.run(); //
 
         System.out.println(run.isFinished()); //false
 

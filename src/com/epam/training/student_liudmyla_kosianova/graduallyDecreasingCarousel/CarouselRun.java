@@ -11,7 +11,8 @@ package com.epam.training.student_liudmyla_kosianova.graduallyDecreasingCarousel
  */
 
 public class CarouselRun extends com.epam.training.student_liudmyla_kosianova.decrementingCarousel.CarouselRun {
-    int count =1;
+    int count =0;
+    int subtrahend=1;
     public CarouselRun(int[] greenSofa) {
         super(greenSofa);
     }
@@ -23,22 +24,27 @@ public class CarouselRun extends com.epam.training.student_liudmyla_kosianova.de
             return -1;
         }
 
-
         while(containRunning[currentPosition]==0){
             currentPosition++;
             if(currentPosition==containRunning.length){
                 currentPosition=0;
+                count++;
             }
         }
 
         int willReturn = containRunning[currentPosition];
 
-        containRunning[currentPosition] = containRunning[currentPosition]-count;
+        int decreased = containRunning[currentPosition]-(subtrahend+count);
+        if(decreased>=0){
+            containRunning[currentPosition] = decreased;
+        }else{
+            containRunning[currentPosition] = 0;
+        }
         currentPosition++;
-        count++;
 
         if(currentPosition==containRunning.length){
             currentPosition=0;
+            count++;
         }
         return willReturn;
     }
