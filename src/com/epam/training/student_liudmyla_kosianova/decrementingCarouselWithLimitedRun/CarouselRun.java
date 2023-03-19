@@ -10,7 +10,7 @@ package com.epam.training.student_liudmyla_kosianova.decrementingCarouselWithLim
  */
 public class CarouselRun extends com.epam.training.student_liudmyla_kosianova.decrementingCarousel.CarouselRun {
     protected int limitRun;
-    protected int count;
+    protected int count=0;
     public CarouselRun(int[] greenSofa, int limitRun) {
         super(greenSofa);
         this.limitRun = limitRun;
@@ -26,8 +26,6 @@ public class CarouselRun extends com.epam.training.student_liudmyla_kosianova.de
         if(onlyZeros() || limitReached()){
             return -1;
         }
-        //the value of the current element can't be zero, since we should skip zero elements
-        // Let's find the currentPosition, that points to not a zero element
 
         while(containRunning[currentPosition]==0){
             currentPosition++;
